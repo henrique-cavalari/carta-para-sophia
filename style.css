@@ -111,6 +111,7 @@ body {
     transition-delay: 0s; /* Remove o atraso da transição */
 }
 
+/* Estilos para o coração */
 .heart {
     position: absolute;
     top: 50%;
@@ -120,9 +121,10 @@ body {
     background: var(--heart-color);
     z-index: 4;
     transform: translate(-50%, -20%) rotate(45deg);
-    transition: transform 0.5s ease-in-out 1s;
+    transition: transform 0.5s ease-in-out 1s, opacity 0.5s ease-in-out; /* Adiciona transição para opacity */
     box-shadow: 0 1px 6px var(--shadow-color);
     cursor: pointer;
+    opacity: 1; /* Coração visível por padrão */
 }
 
 .heart:before,
@@ -141,6 +143,12 @@ body {
 
 .heart:after {
     right: 7.5px;
+}
+
+/* Quando o envelope estiver aberto (classe .flap), esconde o coração */
+.flap > .heart {
+    opacity: 0; /* Coração invisível */
+    transition-delay: 0s; /* Remove o atraso da transição */
 }
 
 .flap > .envelope::before {
